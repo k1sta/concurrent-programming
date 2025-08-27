@@ -56,9 +56,17 @@ int main(int argc, char *argv[])
         for (long unsigned int i = 0; i < N; i++) {
             r += v1[i] * v2[i];
         }
-
-        printf("r = %f\n", r);
-        sprintf(filename, "result_%hu.bin", j);
+        short unsigned int file_num = 0;
+        
+        while(1) {
+            sprintf(filename, "result_%hu.bin", file_num);
+            FILE *check_file = fopen(filename, "rb");
+            if (check_file == NULL) {
+                break;
+            }
+            fclose(check_file);
+            file_num++;
+        }
         
         file = fopen(filename, "wb");
         if (file == NULL) {

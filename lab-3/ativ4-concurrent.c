@@ -4,7 +4,6 @@
 #include <sys/time.h>
 #include <math.h>
 
-// Structure to hold data for each thread
 typedef struct {
     int thread_id;
     int num_threads;
