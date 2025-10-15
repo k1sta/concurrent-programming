@@ -23,7 +23,7 @@ sem_t itens;
 ConsumidorStats *stats;
 int num_consumidores;
 int total_primos = 0;
-int total_primos_esperados = 0;  // Contagem de quantos primos existem de 1 a N
+int total_primos_esperados = 0; 
 sem_t mutex_stats;        
 
 int ehPrimo(long long int n) {
@@ -141,7 +141,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
     
-    // Calcula quantos primos existem de 1 a N (para verificar corretude)
     printf("Calculando quantos primos existem de 1 a %d...\n", N);
     for (int i = 1; i <= N; i++) {
         if (ehPrimo(i)) {
@@ -191,7 +190,6 @@ int main(int argc, char *argv[]) {
     printf("Thread consumidora VENCEDORA: %d (encontrou %d primos)\n", 
            vencedor_id, max_primos);
     
-    // Verificação de corretude
     printf("\n=== VERIFICAÇÃO DE CORRETUDE ===\n");
     printf("Primos esperados: %d\n", total_primos_esperados);
     printf("Primos encontrados: %d\n", total_primos);
